@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IMDB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="http://localhost:63342/IMDB/templates/IMDB.html?_ijt=nvlombpea6h58ph9r7q93skd7f">
+
+</head>
+<body>
+<div clas="container">
+    <div class="row justify-content-center">
+        <div th:each="action, stat : ${actions}" class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-text text-center" th:text="${action.titlu}">Titlu</h5>
+                    <div class="card shadow" style="width:20rem">
+
+                        <div class="card-body">
+                            <img class="card-image" th:src="${action.imagine}">
+                            <h7 class="card-title" th:text="${action.descriere}">Descriere</h7>
+                            <p class="card-text" th:text="${action.rating}">Rating</p>
+                            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal"
+                                    data-th-text="${trailer}">Small
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class=col-sm-12>-->
+<!--            <table class="table table-dark table-hover">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>Name</th>-->
+<!--                    <th>Rate</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr data-th-each="action:${actions}">-->
+<!--                    <td>-->
+<!--                        <a class="nav-link text-white"-->
+<!--                           data-th-text="${action.name}"-->
+<!--                           data-th-href="'/actions/' + ${action.id}"></a>-->
+<!--                    </td>-->
+<!--                    <td data-th-text="${action.rating}"></td>-->
+
+<!--                    <td>-->
+<!--                        <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal"-->
+<!--                                data-th-text="${trailer}">Small-->
+<!--                        </button>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--&lt;!&ndash;            <div class="container" data-th-if="${showDetails}">&ndash;&gt;-->
+<!--&lt;!&ndash;                <h2>BloodSport</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="card" style="width:500px">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img class="card-img-top" src="https://m.media-amazon.com/images/M/MV5BNTJmMGEzMTQtMzQzMi00YjE1LWI4MTctNjY0NWZiYzE2MDVhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg" style="width:350px;height:450px">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="card-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p class="card-text">"Bloodsport" follows Frank Dux, an American martial artist serving in the military, who decides to leave the army to compete in a martial arts tournament in Hong Kong where fights to the death can occur.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <li><span>Name: </span><span data-th-text="${selectedAction.name}"></span></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <li><span>Rating:</span><span data-th-text="${selectedAction.rating}"></span></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--            <div class="container" data-th-if="${showDetails}">-->
+<!--                <h2>Six Bullets</h2>-->
+<!--               <div class="card" style="width:500px">-->
+<!--                    <img class="card-img-top"-->
+<!--                         src="https://static.cinemagia.ro/img/resize/db/movie/56/68/51/6-bullets-137923l-0x640-h-6c6004f0.jpg"-->
+<!--                         style="width:350px;height:450px">-->
+<!--                    <div class="card-body">-->
+<!--                        <p class="card-text">An ex-mercenary known for finding missing children is hired by a mixed-->
+<!--                            martial arts fighter whose daughter has been kidnapped.</p>-->
+<!--                        <ul>-->
+<!--                            <li><span>Director:</span><span> Ernie Barbarash</span></li>-->
+<!--                            <li><span>Writers:</span><span> Chad Law, Evan Law</span></li>-->
+<!--                            <li><span>Stars:</span><span> Jean-Claude Van Damme, Joe Flanigan, Anna-Louise Plowman</span>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <h5 class="card-text text-center" th:text="${action.titlu}">Titlu</h5>
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                <iframe width="470" height="240" src="https://www.youtube.com/embed/wDBWJocOi3c"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
