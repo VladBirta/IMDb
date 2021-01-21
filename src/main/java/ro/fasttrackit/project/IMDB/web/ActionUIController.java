@@ -19,6 +19,7 @@ public class ActionUIController {
     @GetMapping
     String getUserPage(Model pageModel){
         pageModel.addAttribute("trailer", "Trailer");
+        pageModel.addAttribute("myModal", true);
         pageModel.addAttribute("actions", actionService.getAllAction());
         return "actions";
     }

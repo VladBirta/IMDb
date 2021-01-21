@@ -10,12 +10,14 @@ public class Action {
     @GeneratedValue
     private int id;
 
+    private String trailer;
     private String imagine;
     private String descriere;
     private String titlu;
     private double rating;
 
-    public Action(String imagine, String descriere, String titlu, double rating) {
+    public Action(String trailer, String imagine, String descriere, String titlu, double rating) {
+        this.trailer = trailer;
         this.imagine = imagine;
         this.descriere = descriere;
         this.titlu = titlu;
@@ -31,6 +33,14 @@ public class Action {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
     }
 
     public String getImagine() {
